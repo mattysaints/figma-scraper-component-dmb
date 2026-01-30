@@ -85,7 +85,7 @@ The API will be available at:
 Endpoint
 
 ```bash
-POST /extract-styles
+POST /api/v1/figma/analyze
 ```
 
 Extract styles from a specific node
