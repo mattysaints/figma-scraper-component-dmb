@@ -1,11 +1,11 @@
 import re
-from typing import Any
 from urllib.parse import urlparse, parse_qs
 from pydantic import HttpUrl
 
 from app.services.figma_client import FigmaClient
+from app.services.node_finder import find_node_by_id
+from app.types.figma import FigmaNode
 
-# --- existing URL parsing function ---
 FIGMA_FILE_KEY_REGEX = re.compile(r"/design/([^/]+)")
 
 
@@ -28,12 +28,27 @@ def parse_figma_url(figma_url: HttpUrl) -> tuple[str, str | None]:
     return file_key, node_id
 
 
-# --- new function to fetch the file from Figma ---
-async def fetch_figma_file(figma_url: HttpUrl) -> dict[str, Any]:
-    """
-    Given a Figma URL, fetch the file JSON from the Figma API.
-    """
-    file_key, _ = parse_figma_url(figma_url)
+async def fetch_target_node(
+    figma_url: HttpUrl,
+    use_node_id: bool,
+) -> FigmaNode:
+    file_key, node_id = parse_figma_url(figma_url)
 
     client = FigmaClient()
-    return await client.get_file(file_key)
+    file_data = await client.get_file(file_key)
+
+    document = file_data.get("document")
+    if not isinstance(document, dict):
+        raise ValueError("Invalid Figma file structure")
+
+    if use_node_id:
+        if node_id is None:
+            raise ValueError("use_node_id=true but no node-id found in URL")
+
+        target = find_node_by_id(document, node_id)
+        if target is None:
+            raise ValueError(f"Node with id '{node_id}' not found")
+
+        return target
+
+    return document

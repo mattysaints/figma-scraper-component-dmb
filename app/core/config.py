@@ -16,7 +16,11 @@ class Settings(BaseSettings):
         validation_alias="ENV",
     )
 
-    # 👇 Default satisfies Pylance
+    figma_max_retry_wait_seconds: int = Field(
+        default=10,
+        validation_alias="FIGMA_API_MAX_RETRY_WAIT_SECONDS",
+    )
+
     figma_access_token: str = Field(
         default="",
         validation_alias="FIGMA_ACCESS_TOKEN",

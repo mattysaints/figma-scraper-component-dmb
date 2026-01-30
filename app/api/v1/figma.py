@@ -1,33 +1,21 @@
-from typing import Any
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter
 
-from app.schemas.figma import (
-    FigmaAnalyzeRequest,
-)
-from app.services.figma_service import fetch_figma_file
-from app.services.figma_client import FigmaApiError
+from app.schemas.figma import FigmaAnalyzeRequest
+from app.schemas.styles import ExtractedStyles
+from app.services.figma_service import fetch_target_node
+from app.services.style_extractor import extract_styles
 
 router = APIRouter(prefix="/figma", tags=["Figma"])
 
 
-@router.post("/analyze")
-async def analyze_figma_design(payload: FigmaAnalyzeRequest) -> dict[str, Any]:
-    try:
-        figma_file = await fetch_figma_file(payload.figma_url)
-    except FigmaApiError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_502_BAD_GATEWAY,
-            detail=str(exc),
-        )
-    except ValueError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=str(exc),
-        )
+@router.post(
+    "/analyze",
+    response_model=ExtractedStyles,
+)
+async def analyze_figma_design(payload: FigmaAnalyzeRequest):
+    target_node = await fetch_target_node(
+        payload.figma_url,
+        payload.use_node_id,
+    )
 
-    # TEMP: return raw data (we'll extract styles next)
-    return {
-        "name": figma_file.get("name"),
-        "lastModified": figma_file.get("lastModified"),
-        "documentType": figma_file.get("document", {}).get("type"),
-    }
+    return extract_styles(target_node)
