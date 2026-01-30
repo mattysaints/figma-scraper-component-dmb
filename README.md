@@ -11,8 +11,8 @@ You can extract:
 ## Features
 
 - Extracts:
-  - 🎨 Solid fill colors
-  - 🔤 Text styles (font family, size, weight, line height, letter spacing)
+  - Solid fill colors
+  - Text styles (font family, size, weight, line height, letter spacing)
 - Supports:
   - Full document extraction
   - Node-level extraction via `node-id`
