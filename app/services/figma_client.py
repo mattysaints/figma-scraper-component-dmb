@@ -15,7 +15,7 @@ class FigmaClient:
         }
 
     async def get_file(self, file_key: str) -> FigmaFile:
-        url = f"https://api.figma.com/v1/files/{file_key}"
+        url = f"{settings.figma_api_url}/files/{file_key}"
 
         async with httpx.AsyncClient(timeout=10.0) as client:
             for attempt in range(3):

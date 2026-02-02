@@ -21,6 +21,11 @@ class Settings(BaseSettings):
         validation_alias="FIGMA_API_MAX_RETRY_WAIT_SECONDS",
     )
 
+    figma_api_url: str = Field(
+        default="https://api.figma.com/v1",
+        validation_alias="FIGMA_API_URL",
+    )
+
     figma_access_token: str = Field(
         default="",
         validation_alias="FIGMA_ACCESS_TOKEN",

@@ -1,9 +1,9 @@
 import re
+from typing import Optional
 from urllib.parse import urlparse, parse_qs
 from pydantic import HttpUrl
 
 from app.services.figma_client import FigmaClient
-from app.services.node_finder import find_node_by_id
 from app.types.figma import FigmaNode
 
 FIGMA_FILE_KEY_REGEX = re.compile(r"/design/([^/]+)")
@@ -52,3 +52,20 @@ async def fetch_target_node(
         return target
 
     return document
+
+
+def find_node_by_id(
+    node: FigmaNode,
+    node_id: str,
+) -> Optional[FigmaNode]:
+    if node.get("id") == node_id:
+        return node
+
+    children = node.get("children")
+    if isinstance(children, list):
+        for child in children:
+            result = find_node_by_id(child, node_id)
+            if result is not None:
+                return result
+
+    return None
