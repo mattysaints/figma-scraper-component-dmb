@@ -6,8 +6,7 @@ from pydantic import HttpUrl
 from app.services.figma_client import FigmaClient
 from app.types.figma import FigmaNode
 
-FIGMA_FILE_KEY_REGEX = re.compile(r"/design/([^/]+)")
-
+FIGMA_FILE_KEY_REGEX = re.compile(r"/(?:file|design)/([^/]+)")
 
 def parse_figma_url(figma_url: HttpUrl) -> tuple[str, str | None]:
     """
@@ -24,6 +23,9 @@ def parse_figma_url(figma_url: HttpUrl) -> tuple[str, str | None]:
     parsed_url = urlparse(url_str)
     query_params = parse_qs(parsed_url.query)
     node_id = query_params.get("node-id", [None])[0]
+
+    if node_id is not None:
+        node_id = node_id.replace("-", ":")
 
     return file_key, node_id
 
