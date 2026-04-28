@@ -1,0 +1,857 @@
+[
+  {
+    "name": "TitleFormField",
+    "description": "Imported from showcaseUi.kt (TitleFormField)",
+    "aliases": [
+      "TitleForm"
+    ],
+    "tags": [
+      "text"
+    ],
+    "properties": []
+  },
+  {
+    "name": "AddressBookAutocompleteViewField",
+    "description": "Imported from showcaseUi.kt (AddressBookAutocompleteViewField)",
+    "aliases": [
+      "AddressBookAutocomplete"
+    ],
+    "tags": [
+      "input"
+    ],
+    "properties": [
+      "hint",
+      "scope",
+      "contacts",
+      "parser",
+      "tooltipField"
+    ]
+  },
+  {
+    "name": "ButtonViewField",
+    "description": "Imported from showcaseUi.kt (ButtonViewField)",
+    "aliases": [
+      "Button"
+    ],
+    "tags": [
+      "button"
+    ],
+    "properties": [
+      "text",
+      "icon",
+      "textLinkColor",
+      "marginTop",
+      "action"
+    ]
+  },
+  {
+    "name": "SecurityViewField",
+    "description": "Imported from showcaseUi.kt (SecurityViewField)",
+    "aliases": [
+      "Security"
+    ],
+    "tags": [],
+    "properties": []
+  },
+  {
+    "name": "InputViewField",
+    "description": "Imported from showcaseUi.kt (InputViewField)",
+    "aliases": [
+      "Input"
+    ],
+    "tags": [
+      "input"
+    ],
+    "properties": [
+      "helperText"
+    ]
+  },
+  {
+    "name": "PasswordViewField",
+    "description": "Imported from showcaseUi.kt (PasswordViewField)",
+    "aliases": [
+      "Password"
+    ],
+    "tags": [
+      "input"
+    ],
+    "properties": [
+      "inputType"
+    ]
+  },
+  {
+    "name": "DateViewField",
+    "description": "Imported from showcaseUi.kt (DateViewField)",
+    "aliases": [
+      "Date"
+    ],
+    "tags": [
+      "input"
+    ],
+    "properties": []
+  },
+  {
+    "name": "DateTextViewField",
+    "description": "Imported from showcaseUi.kt (DateTextViewField)",
+    "aliases": [
+      "DateText"
+    ],
+    "tags": [
+      "input",
+      "text"
+    ],
+    "properties": []
+  },
+  {
+    "name": "CalendarDateViewField",
+    "description": "Imported from showcaseUi.kt (CalendarDateViewField)",
+    "aliases": [
+      "CalendarDate"
+    ],
+    "tags": [
+      "input"
+    ],
+    "properties": [
+      "helperText",
+      "headerField",
+      "fragmentManager"
+    ]
+  },
+  {
+    "name": "SpinnerViewField",
+    "description": "Imported from showcaseUi.kt (SpinnerViewField)",
+    "aliases": [
+      "Spinner"
+    ],
+    "tags": [
+      "input"
+    ],
+    "properties": []
+  },
+  {
+    "name": "ContiSpinnerViewField",
+    "description": "Imported from showcaseUi.kt (ContiSpinnerViewField)",
+    "aliases": [
+      "ContiSpinner"
+    ],
+    "tags": [
+      "input"
+    ],
+    "properties": []
+  },
+  {
+    "name": "CheckBoxField",
+    "description": "Imported from showcaseUi.kt (CheckBoxField)",
+    "aliases": [
+      "CheckBox"
+    ],
+    "tags": [
+      "selection"
+    ],
+    "properties": []
+  },
+  {
+    "name": "ImageToggleViewField",
+    "description": "Imported from showcaseUi.kt (ImageToggleViewField)",
+    "aliases": [
+      "ImageToggle"
+    ],
+    "tags": [
+      "image",
+      "selection"
+    ],
+    "properties": [
+      "isEnabled"
+    ]
+  },
+  {
+    "name": "ToggleViewField",
+    "description": "Imported from showcaseUi.kt (ToggleViewField)",
+    "aliases": [
+      "Toggle"
+    ],
+    "tags": [
+      "selection"
+    ],
+    "properties": []
+  },
+  {
+    "name": "DisclaimerViewField",
+    "description": "Imported from showcaseUi.kt (DisclaimerViewField)",
+    "aliases": [
+      "Disclaimer"
+    ],
+    "tags": [
+      "info"
+    ],
+    "properties": [
+      "message",
+      "disclaimerViewType"
+    ]
+  },
+  {
+    "name": "MonthYearPickerViewField",
+    "description": "Imported from showcaseUi.kt (MonthYearPickerViewField)",
+    "aliases": [
+      "MonthYearPicker"
+    ],
+    "tags": [],
+    "properties": [
+      "title",
+      "tooltipField"
+    ]
+  },
+  {
+    "name": "ImageWithLabelsViewField",
+    "description": "Imported from showcaseUi.kt (ImageWithLabelsViewField)",
+    "aliases": [
+      "ImageWithLabels"
+    ],
+    "tags": [
+      "image",
+      "text"
+    ],
+    "properties": [
+      "topText",
+      "bottomText"
+    ]
+  },
+  {
+    "name": "ClickableItemViewField",
+    "description": "Imported from showcaseUi.kt (ClickableItemViewField)",
+    "aliases": [
+      "ClickableItem"
+    ],
+    "tags": [],
+    "properties": [
+      "title",
+      "action"
+    ]
+  },
+  {
+    "name": "DividerViewField",
+    "description": "Imported from showcaseUi.kt (DividerViewField)",
+    "aliases": [
+      "Divider"
+    ],
+    "tags": [
+      "layout"
+    ],
+    "properties": []
+  },
+  {
+    "name": "MultipleCheckBoxField",
+    "description": "Imported from showcaseUi.kt (MultipleCheckBoxField)",
+    "aliases": [
+      "MultipleCheckBox"
+    ],
+    "tags": [
+      "selection"
+    ],
+    "properties": [
+      "text1",
+      "text2",
+      "text3",
+      "text4",
+      "singleLine",
+      "childMarginEnd"
+    ]
+  },
+  {
+    "name": "MultipleRowsInputViewField",
+    "description": "Imported from showcaseUi.kt (MultipleRowsInputViewField)",
+    "aliases": [
+      "MultipleRowsInput"
+    ],
+    "tags": [
+      "input"
+    ],
+    "properties": [
+      "title",
+      "initValue",
+      "lines"
+    ]
+  },
+  {
+    "name": "CollapsibleImageViewField",
+    "description": "Imported from showcaseUi.kt (CollapsibleImageViewField)",
+    "aliases": [
+      "CollapsibleImage"
+    ],
+    "tags": [
+      "image"
+    ],
+    "properties": [
+      "title"
+    ]
+  },
+  {
+    "name": "DxTextLinkViewField",
+    "description": "Imported from showcaseUi.kt (DxTextLinkViewField)",
+    "aliases": [
+      "TextLink",
+      "TextLinkViewField"
+    ],
+    "tags": [
+      "text"
+    ],
+    "properties": [
+      "text",
+      "paddingTop"
+    ]
+  },
+  {
+    "name": "AttachedImageViewField",
+    "description": "Imported from showcaseUi.kt (AttachedImageViewField)",
+    "aliases": [
+      "AttachedImage"
+    ],
+    "tags": [
+      "image"
+    ],
+    "properties": [
+      "attachedText",
+      "marginTop"
+    ]
+  },
+  {
+    "name": "AutocompleteFormField",
+    "description": "Imported from showcaseUi.kt (AutocompleteFormField)",
+    "aliases": [
+      "AutocompleteForm"
+    ],
+    "tags": [
+      "input"
+    ],
+    "properties": [
+      "hint",
+      "suggestions"
+    ]
+  },
+  {
+    "name": "LargeDoubleButtonViewField",
+    "description": "Imported from showcaseUi.kt (LargeDoubleButtonViewField)",
+    "aliases": [
+      "LargeDoubleButton"
+    ],
+    "tags": [
+      "button"
+    ],
+    "properties": [
+      "firstButtonText",
+      "secondButtonText",
+      "isFirstSelected"
+    ]
+  },
+  {
+    "name": "DoubleButtonViewField",
+    "description": "Imported from showcaseUi.kt (DoubleButtonViewField)",
+    "aliases": [
+      "DoubleButton"
+    ],
+    "tags": [
+      "button"
+    ],
+    "properties": [
+      "firstButtonText",
+      "secondButtonText",
+      "firstDrawableRes",
+      "secondDrawableRes"
+    ]
+  },
+  {
+    "name": "DxRiepilogoGapViewRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoGapViewRow)",
+    "aliases": [
+      "GapView",
+      "GapViewRow"
+    ],
+    "tags": [
+      "layout",
+      "riepilogo"
+    ],
+    "properties": []
+  },
+  {
+    "name": "DxRiepilogoCheckDataTitleRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoCheckDataTitleRow)",
+    "aliases": [
+      "CheckDataTitle",
+      "CheckDataTitleRow"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": []
+  },
+  {
+    "name": "DxRiepilogoTitleRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoTitleRow)",
+    "aliases": [
+      "Title",
+      "TitleRow"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "title",
+      "marginTop"
+    ]
+  },
+  {
+    "name": "DxRiepilogoTitleWithCTAElement",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoTitleWithCTAElement)",
+    "aliases": [
+      "TitleWithCTA",
+      "TitleWithCTAElement"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "title",
+      "ctaText",
+      "listener"
+    ]
+  },
+  {
+    "name": "DxRiepilogoPdfDownload",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoPdfDownload)",
+    "aliases": [
+      "PdfDownload"
+    ],
+    "tags": [
+      "riepilogo"
+    ],
+    "properties": [
+      "title",
+      "buttonText",
+      "downloadPdf"
+    ]
+  },
+  {
+    "name": "DxRiepilogoHeaderFieldWithImage",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoHeaderFieldWithImage)",
+    "aliases": [
+      "HeaderFieldWithImage"
+    ],
+    "tags": [
+      "image",
+      "riepilogo"
+    ],
+    "properties": [
+      "title",
+      "contentTitle",
+      "content"
+    ]
+  },
+  {
+    "name": "DxRiepilogoField",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoField)",
+    "aliases": [
+      "Field"
+    ],
+    "tags": [
+      "riepilogo"
+    ],
+    "properties": [
+      "title",
+      "contentTitle",
+      "content",
+      "iconRes",
+      "paddingTop",
+      "paddingBottom"
+    ]
+  },
+  {
+    "name": "DxRiepilogoFieldTable",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoFieldTable)",
+    "aliases": [
+      "FieldTable"
+    ],
+    "tags": [
+      "riepilogo"
+    ],
+    "properties": [
+      "titleLeft",
+      "contentLeft",
+      "titleRight",
+      "contentRight",
+      "paddingTop",
+      "paddingBottom"
+    ]
+  },
+  {
+    "name": "DxRiepilogoTextLink",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoTextLink)",
+    "aliases": [
+      "TextLink"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "text"
+    ]
+  },
+  {
+    "name": "DxRiepilogoCardViewWithTextLink",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoCardViewWithTextLink)",
+    "aliases": [
+      "CardViewWithTextLink"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "text"
+    ]
+  },
+  {
+    "name": "DxRiepilogoCoreFloatingButtonRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoCoreFloatingButtonRow)",
+    "aliases": [
+      "CoreFloatingButton",
+      "CoreFloatingButtonRow"
+    ],
+    "tags": [
+      "button",
+      "riepilogo"
+    ],
+    "properties": [
+      "mText",
+      "clickListener"
+    ]
+  },
+  {
+    "name": "DxRiepilogoImageViewRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoImageViewRow)",
+    "aliases": [
+      "ImageView",
+      "ImageViewRow"
+    ],
+    "tags": [
+      "image",
+      "riepilogo"
+    ],
+    "properties": [
+      "image",
+      "height",
+      "marginTop",
+      "width"
+    ]
+  },
+  {
+    "name": "DxRiepilogoTextViewRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoTextViewRow)",
+    "aliases": [
+      "TextView",
+      "TextViewRow"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "text",
+      "textSize",
+      "fontWeight",
+      "marginTop",
+      "gravity",
+      "marginStart",
+      "paddingBottom"
+    ]
+  },
+  {
+    "name": "DxRiepilogoCardView",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoCardView)",
+    "aliases": [
+      "Card",
+      "CardView"
+    ],
+    "tags": [
+      "riepilogo"
+    ],
+    "properties": [
+      "text",
+      "textLinkText",
+      "listener",
+      "disclaimerViewType"
+    ]
+  },
+  {
+    "name": "DxRiepilogoDoubleButton",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoDoubleButton)",
+    "aliases": [
+      "DoubleButton"
+    ],
+    "tags": [
+      "button",
+      "riepilogo"
+    ],
+    "properties": []
+  },
+  {
+    "name": "DxRiepilogoButtonWithNextStep",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoButtonWithNextStep)",
+    "aliases": [
+      "ButtonWithNextStep"
+    ],
+    "tags": [
+      "button",
+      "riepilogo"
+    ],
+    "properties": [
+      "buttonText",
+      "nextStepText",
+      "salvaEriprendiText",
+      "buttonListener",
+      "salvaEriprendiListener"
+    ]
+  },
+  {
+    "name": "DxRiepilogoTextWithInnerLink",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoTextWithInnerLink)",
+    "aliases": [
+      "TextWithInnerLink"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "text",
+      "mPaddingTop",
+      "mPaddingBottom",
+      "textLinkColor"
+    ]
+  },
+  {
+    "name": "DxRiepilogoButtonWithTextLink",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoButtonWithTextLink)",
+    "aliases": [
+      "ButtonWithTextLink"
+    ],
+    "tags": [
+      "button",
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "buttonText",
+      "text"
+    ]
+  },
+  {
+    "name": "DxRiepilogoTitleWithCTAElementListener",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoTitleWithCTAElementListener)",
+    "aliases": [
+      "TitleWithCTAElementListener"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": []
+  },
+  {
+    "name": "DxRiepilogoBitmapImageViewRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoBitmapImageViewRow)",
+    "aliases": [
+      "BitmapImageView",
+      "BitmapImageViewRow"
+    ],
+    "tags": [
+      "image",
+      "riepilogo"
+    ],
+    "properties": []
+  },
+  {
+    "name": "DxRiepilogoDivider",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoDivider)",
+    "aliases": [
+      "Divider"
+    ],
+    "tags": [
+      "layout",
+      "riepilogo"
+    ],
+    "properties": [
+      "dividerLengthConfiguration"
+    ]
+  },
+  {
+    "name": "DxRiepilogoTextViewWithDot",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoTextViewWithDot)",
+    "aliases": [
+      "TextViewWithDot"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "text",
+      "textColor",
+      "textSize",
+      "marginStart",
+      "marginEnd"
+    ]
+  },
+  {
+    "name": "DxRiepilogoTextFieldWithDotAndLink",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoTextFieldWithDotAndLink)",
+    "aliases": [
+      "TextFieldWithDotAndLink"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "text",
+      "textColor",
+      "textSize",
+      "marginStart",
+      "marginEnd"
+    ]
+  },
+  {
+    "name": "DxRiepilogoDigitalPaymentField",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoDigitalPaymentField)",
+    "aliases": [
+      "DigitalPayment",
+      "DigitalPaymentField"
+    ],
+    "tags": [
+      "riepilogo"
+    ],
+    "properties": [
+      "title",
+      "logoActivated",
+      "logoDisabled",
+      "actionImage"
+    ]
+  },
+  {
+    "name": "DxRiepilogoUrlImageViewRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoUrlImageViewRow)",
+    "aliases": [
+      "UrlImageView",
+      "UrlImageViewRow"
+    ],
+    "tags": [
+      "image",
+      "riepilogo"
+    ],
+    "properties": [
+      "image"
+    ]
+  },
+  {
+    "name": "DxRiepilogoCoreFloatingButtonInversedRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoCoreFloatingButtonInversedRow)",
+    "aliases": [
+      "CoreFloatingButtonInversed",
+      "CoreFloatingButtonInversedRow"
+    ],
+    "tags": [
+      "button",
+      "riepilogo"
+    ],
+    "properties": [
+      "text"
+    ]
+  },
+  {
+    "name": "DxRiepilogoDoubleButtonWithTextLink",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoDoubleButtonWithTextLink)",
+    "aliases": [
+      "DoubleButtonWithTextLink"
+    ],
+    "tags": [
+      "button",
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "upperButtonText",
+      "bottomButtonText",
+      "text"
+    ]
+  },
+  {
+    "name": "DxRiepilogoCardViewWithCoreTextLink",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoCardViewWithCoreTextLink)",
+    "aliases": [
+      "CardViewWithCoreTextLink"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "coreTextLinkText",
+      "listener",
+      "marginStart"
+    ]
+  },
+  {
+    "name": "DxRiepilogoDoubleText",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoDoubleText)",
+    "aliases": [
+      "DoubleText"
+    ],
+    "tags": [
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "textLeft",
+      "textLeftColor",
+      "textLeftFontWeight",
+      "textRight",
+      "textRightColor",
+      "textRightFontWeight",
+      "paddingTop"
+    ]
+  },
+  {
+    "name": "DxRiepilogoTextViewWithIconRow",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoTextViewWithIconRow)",
+    "aliases": [
+      "TextViewWithIcon",
+      "TextViewWithIconRow"
+    ],
+    "tags": [
+      "image",
+      "riepilogo",
+      "text"
+    ],
+    "properties": [
+      "text",
+      "marginStart",
+      "marginTop",
+      "fontWeight",
+      "icon"
+    ]
+  },
+  {
+    "name": "DxRiepilogoAdapterFactory",
+    "description": "Imported from showcaseUi.kt (DxRiepilogoAdapterFactory)",
+    "aliases": [
+      "AdapterFactory"
+    ],
+    "tags": [
+      "riepilogo"
+    ],
+    "properties": []
+  }
+]

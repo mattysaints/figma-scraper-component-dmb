@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Figma → dmbUi Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header__brand">
+      <div class="logo" aria-hidden="true">F→</div>
+      <div>
+        <h1>Figma → dmbUi Agent</h1>
+        <div class="app-header__sub">Estrai stili e mappa i componenti Figma sui widget dmbUi.</div>
+      </div>
+    </div>
+    <div class="app-header__actions">
+      <span id="token-status" class="pill">Verifica token…</span>
+      <button id="btn-check-token" class="btn btn--ghost btn--sm" title="Verifica token Figma">Verifica</button>
+      <a class="btn btn--subtle btn--sm" href="/docs" target="_blank" rel="noopener">API docs</a>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <!-- 1. Figma URL & analysis controls -->
+      <section class="card">
+        <header class="card__header">
+          <div class="card__title">
+            <span class="num">1</span>
+            <h2>Sorgente Figma</h2>
+          </div>
+        </header>
+        <div class="card__body">
+          <div class="field">
+            <label for="figma-url" class="field-label">URL del file o nodo</label>
+            <input id="figma-url" class="input" type="text"
+              placeholder="https://www.figma.com/design/FILE_KEY/Name?node-id=…" />
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label for="threshold" class="field-label">Soglia confidence</label>
+              <input id="threshold" class="input" type="number" min="0" max="1" step="0.05" value="0.6" />
+            </div>
+            <div class="field" style="justify-content:flex-end">
+              <label class="field-label">Opzioni</label>
+              <label class="checkbox"><input type="checkbox" id="use-node-id" /> usa node-id dall'URL</label>
+            </div>
+          </div>
+
+          <div class="row-2">
+            <label class="checkbox"><input type="checkbox" id="include-unmatched" checked /> mostra non matchati</label>
+            <label class="checkbox"><input type="checkbox" id="only-instances" checked /> solo INSTANCE/COMPONENT</label>
+          </div>
+
+          <div class="btn-group" style="margin-top:6px">
+            <button id="btn-analyze-components" class="btn btn--primary">Analizza componenti</button>
+            <button id="btn-analyze-styles" class="btn btn--ghost">Estrai stili</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Catalog -->
+      <section class="card">
+        <header class="card__header">
+          <div class="card__title">
+            <span class="num">2</span>
+            <h2>Catalogo dmbUi</h2>
+          </div>
+          <span class="pill">
+            <strong id="catalog-count">…</strong>
+            <span class="muted">componenti</span>
+          </span>
+        </header>
+        <div class="card__body">
+          <p id="catalog-status" class="muted" style="margin:0">Carico…</p>
+          <div class="btn-group">
+            <button id="btn-bootstrap-merge" class="btn btn--ghost btn--sm">Bootstrap (merge)</button>
+            <button id="btn-bootstrap-replace" class="btn btn--ghost btn--sm">Bootstrap (replace)</button>
+            <button id="btn-refresh-catalog" class="btn btn--subtle btn--sm">Ricarica</button>
+          </div>
+
+          <details>
+            <summary class="muted" style="cursor:pointer">Aggiungi componente manualmente</summary>
+            <div style="display:flex; flex-direction:column; gap: var(--space-2); margin-top:8px">
+              <input id="new-name" class="input" type="text" placeholder="Nome canonico (es. DxDynamicLocalizeTextView)" />
+              <input id="new-aliases" class="input" type="text" placeholder="Alias (csv)" />
+              <input id="new-tags" class="input" type="text" placeholder="Tags (csv)" />
+              <button id="btn-create-component" class="btn btn--primary btn--sm">Crea</button>
+            </div>
+          </details>
+        </div>
+      </section>
+    </aside>
+
+    <!-- ============ CONTENT ============ -->
+    <section class="content">
+      <!-- Progress -->
+      <div id="progress-card" class="card progress-card hidden">
+        <div class="card__body">
+          <div class="progress-row">
+            <div class="spinner" aria-hidden="true"></div>
+            <div id="progress-msg" style="font-weight:600">In attesa…</div>
+            <div id="progress-elapsed" class="muted right" style="font-variant-numeric: tabular-nums">0.0s</div>
+          </div>
+          <div id="progress-bar" class="progress-bar is-indet"><span></span></div>
+          <div class="phase-list">
+            <span class="phase" data-phase="fetch">1. Figma</span>
+            <span class="phase" data-phase="extract">2. Estrazione</span>
+            <span class="phase" data-phase="match">3. Matching</span>
+            <span class="phase" data-phase="done">4. Done</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs container -->
+      <div class="card">
+        <div class="toolbar">
+          <div class="tabs" role="tablist">
+            <button class="tab is-active" data-tab="components">Componenti</button>
+            <button class="tab" data-tab="styles">Stili</button>
+            <button class="tab" data-tab="raw">Raw JSON</button>
+          </div>
+          <div class="row" id="components-stats" style="gap:6px"></div>
+        </div>
+
+        <!-- COMPONENTS PANE -->
+        <div data-tabpane="components">
+          <div class="toolbar" style="border-top:0">
+            <input id="search" class="input" type="text"
+              placeholder="Cerca per nome Figma, dmbUi o testo…" style="max-width: 360px" />
+            <select id="filter-status" class="input" style="max-width: 180px">
+              <option value="all">Tutti</option>
+              <option value="matched">Solo matched</option>
+              <option value="unmatched">Solo da mappare</option>
+            </select>
+            <select id="group-by" class="input" style="max-width: 220px">
+              <option value="none">Nessun raggruppamento</option>
+              <option value="name">Raggruppa per nome Figma</option>
+            </select>
+            <span class="muted right" id="filtered-count">—</span>
+          </div>
+
+          <div id="components-empty" class="empty">
+            <div class="icon">∅</div>
+            <div>
+              <div style="font-weight:600">Nessuna analisi eseguita</div>
+              <div class="empty-msg muted">Incolla un URL Figma e clicca "Analizza componenti".</div>
+            </div>
+          </div>
+
+          <div id="components-table-wrap" class="table-wrap hidden">
+            <table id="components-table" class="tbl">
+              <thead>
+                <tr>
+                  <th>Figma</th>
+                  <th>Tipo</th>
+                  <th>Match</th>
+                  <th>Confidence</th>
+                  <th>Variants / Properties</th>
+                  <th>Azione</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- STYLES PANE -->
+        <div data-tabpane="styles" class="hidden">
+          <div class="card__body">
+            <div id="styles-empty" class="empty">
+              <div class="icon">🎨</div>
+              <div>Nessuna estrazione stili eseguita.</div>
+            </div>
+            <div id="styles-content" class="hidden" style="display:flex; flex-direction:column; gap: var(--space-4)">
+              <div>
+                <h3>Colori</h3>
+                <div id="colors-grid" style="display:flex; flex-wrap:wrap; gap:8px; margin-top: 6px;"></div>
+              </div>
+              <div>
+                <h3>Text styles</h3>
+                <div class="table-wrap">
+                  <table id="styles-table" class="tbl">
+                    <thead><tr><th>Family</th><th>Size</th><th>Weight</th><th>Line</th><th>Spacing</th></tr></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RAW PANE -->
+        <div data-tabpane="raw" class="hidden">
+          <div class="card__body">
+            <pre id="raw-json" class="code">// Esegui un'analisi per vedere il JSON</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+
